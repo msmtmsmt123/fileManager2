@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration monitorInterval="60">
+    <Properties>
+        <Property name="filename">C:\Users\user\Desktop</Property>
+    </Properties>
+    <Appenders>
+        <Console name="STDOUT" target="SYSTEM_OUT">
+            <PatternLayout pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n"/>
+        </Console>
+        <File name="LOGFILE"
+              fileName="${filename}/app-frontend.log">
+            <PatternLayout pattern="[%-5level]  %c{1} - %msg%n"/>
+        </File>
+    </Appenders>
+    <Loggers>
+
+        <Logger name="com" level="all">
+            <AppenderRef ref="LOGFILE"
+                         level="all"/>
+        </Logger>
+        <Root level="all">
+            <AppenderRef ref="STDOUT"/>
+        </Root>
+    </Loggers>
+</Configuration>
